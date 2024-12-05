@@ -1,20 +1,16 @@
 import type { ComponentChildren } from 'preact';
+import { getCollection } from 'astro:content';
 import './Welcome.css';
+
+const posts = await getCollection('posts');
 
 export const Welcome = ({
 	children: counter,
-	posts,
 }: {
 	children: ComponentChildren;
-	posts?: {
-		body: string;
-		id: number;
-		userId: number;
-		title: string;
-	}[];
 }) => {
 	return (
-		<div className="l-page">
+		<div class="l-page">
 			<header>
 				<div className="l-container l-flex row">
 					<div>
@@ -31,7 +27,6 @@ export const Welcome = ({
 				</div>
 			</header>
 			<main className="l-stack">
-				<div className="l-container l-flex"></div>
 				<div className="l-container">
 					<h2>Posts</h2>
 				</div>
@@ -40,7 +35,7 @@ export const Welcome = ({
 						{posts?.map((post) => (
 							<div key={post.id} className="l-box c-card">
 								<h3>
-									<a href={`/posts/${post.id}`}>{post.title}</a>
+									<a href={`/posts/${post.id}`}>{post.data.title}</a>
 								</h3>
 							</div>
 						))}
