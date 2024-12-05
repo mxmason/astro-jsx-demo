@@ -86,6 +86,10 @@ main {
 	flex-direction: column;
 }
 
+button {
+	font-size: 100%;
+}
+
 pre {
 	font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
 		'DejaVu Sans Mono', monospace;

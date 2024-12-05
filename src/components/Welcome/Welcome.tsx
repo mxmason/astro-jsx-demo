@@ -7,23 +7,26 @@ const posts = await getCollection('posts');
 export const Welcome = ({
 	children: counter,
 }: {
-	children: ComponentChildren;
+	children?: ComponentChildren;
 }) => {
 	return (
 		<div class="l-page">
 			<header>
-				<div className="l-container l-flex gap-4 row nowrap">
+				<div className="l-container l-flex gap-4 nowrap">
 					<div>
 						<h1>Hello!</h1>
+						{counter && counter}
 						<p>
-							Let's look at some posts! Note: the counter on this page is a client-side Preact component; the rest is server-rendered! The counter won't render if you disable JavaScript. Try it!
+							Let's look at some posts! Note: the counter on this page is a
+							client-side Preact component; the rest is server-rendered! The
+							counter won't render if you disable JavaScript. Try it!
 						</p>
 						<p>
-						Content courtesy of{' '}
-						<a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a>.
+							Content courtesy of{' '}
+							<a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a>
+							.
 						</p>
 					</div>
-				<div style="align-self: flex-start;margin-left: auto">{counter}</div>
 				</div>
 			</header>
 			<main className="l-stack">
