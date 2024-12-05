@@ -1,0 +1,119 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100dvh;
+	height: 100vh;
+	height: 100%;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+	margin: 0;
+
+	& + * {
+		margin-top: 16px;
+	}
+}
+
+
+body {
+	font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans',
+		Arial, sans-serif;
+	height: 100%;
+	position: relative;
+}
+
+body::before {
+	content: '';
+	background-image: url('/background.svg');
+	filter: blur(100px);
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.l-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0 auto;
+	width: 90dvw;
+}
+
+.l-container:first-child {
+	padding-top: 32px;
+}
+
+.l-container:last-child {
+	padding-bottom: 32px;
+}
+
+.l-box {
+	padding: 12px;
+}
+
+.l-stack > * + * {
+	margin-top: 16px;
+}
+
+.l-flex {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.l-flex.row {
+	flex-direction: row;
+}
+
+
+main {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+pre {
+	font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+		'DejaVu Sans Mono', monospace;
+	font-weight: normal;
+	background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	margin: 0;
+}
+
+p {
+	color: #4b5563;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: -0.006em;
+
+}
+
+code {
+	display: inline-block;
+	background: linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
+		linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 6px 8px;
+}
+
+html astro-island {
+	display: none;
+}
+
+html[data-js='true'] astro-island {
+	display: var(--display, revert);
+}
