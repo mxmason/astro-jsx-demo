@@ -20,12 +20,14 @@ export const Welcome = ({
 					<div>
 						<h1>Hello!</h1>
 						<p>
-							Let's look at some posts! Content courtesy of{' '}
-							<a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a>
-							. Note: the counter on this page is a client-side Preact component; the rest is server-rendered! The counter won't render if you disable JavaScript. Try it!
+							Let's look at some posts! Note: the counter on this page is a client-side Preact component; the rest is server-rendered! The counter won't render if you disable JavaScript. Try it!
+						</p>
+						<p>
+						Content courtesy of{' '}
+						<a href="https://jsonplaceholder.typicode.com">JSONPlaceholder</a>.
 						</p>
 					</div>
-				<div style="margin-left: auto">{counter}</div>
+				<div style="align-self: flex-start;margin-left: auto">{counter}</div>
 				</div>
 			</header>
 			<main className="l-stack">
