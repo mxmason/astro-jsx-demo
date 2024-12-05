@@ -12,7 +12,7 @@ export const Welcome = ({
 	return (
 		<div class="l-page">
 			<header>
-				<div className="l-container l-flex row">
+				<div className="l-container l-flex gap-4 row nowrap">
 					<div>
 						<h1>Hello!</h1>
 						<p>

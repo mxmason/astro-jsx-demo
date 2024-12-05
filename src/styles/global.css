@@ -72,6 +72,14 @@ body::before {
 	flex-direction: row;
 }
 
+.gap-8 {
+	gap: 8px;
+}
+
+.l-flex.nowrap {
+	flex-wrap: nowrap;
+}
+
 main {
 	height: 100%;
 	display: flex;
