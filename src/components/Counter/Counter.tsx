@@ -1,21 +1,33 @@
-import { signal } from "@preact/signals";
-
-// Create a signal that can be subscribed to:
-const count = signal(0);
+import { useLayoutEffect, useRef, useState } from 'preact/hooks';
+import { animate } from 'motion';
 
 export const Counter = () => {
-  // Accessing .value in a component automatically re-renders when it changes:
-  const value = count.value;
+	const ref = useRef<HTMLSpanElement>(null);
+	const [count, setCount] = useState(0);
 
-  const increment = () => {
-    // A signal is updated by assigning to the `.value` property:
-    count.value++;
-  }
+	const increment = () => {
+		setCount((prev) => prev + 1);
+	};
 
-  return (
-    <div>
-      <p>Count: {value}</p>
-      <button onClick={increment}>click me</button>
-    </div>
-  );
-}
+	useLayoutEffect(() => {
+		if(ref.current && count > 0) {
+		animate(
+			ref.current,
+			{ y: [0, -5, 2, 0] },
+			{ ease: ['easeIn', 'easeOut'] },
+		);
+		}
+	}, [count]);
+
+	return (
+		<div>
+			<p>
+				Count:{' '}
+				<span ref={ref} style="display:inline-block">
+					{count}
+				</span>
+			</p>
+			<button onClick={increment}>click me</button>
+		</div>
+	);
+};
